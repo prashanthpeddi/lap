@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        top: 0;
+    }
+  .reg{
+        width: 100%;
+        height: 40px;
+        background-color: aqua;
+        display: flex;
+        justify-content: center;
+        line-height: 1.2;
+    }
+    .main{
+        width: 300px;
+        height: 350px;
+        background-color: blanchedalmond;
+    }
+    .main form{
+        position: absolute;
+        margin-left: 60px;
+        margin-top: 200px;
+        
+        
+    }
+    .user{
+        position: absolute;
+        margin-left: 60px;
+        margin-top: 110px;
+        color: darkgreen;
+    }
+    .main form input{
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color:blanchedalmond ;
+        height: 25PX;
+    }
+   #nn{
+    position: absolute;
+    margin-left: 320px;
+    margin-top: 100px;
+    color: red;
+   }
+   #one{
+    position: absolute;
+    margin-left: 320px;
+    margin-top: 140px;
+    color: red;
+   }
+   #two{
+    position: absolute;
+    margin-left: 320px;
+    margin-top: 180px;
+    color: red;
+   }
+   #three{
+    position: absolute;
+    margin-left: 320px;
+    margin-top: 220px;
+    color: red;
+   }
+   #four{
+    position: absolute;
+    margin-left: 320px;
+    margin-top: 260px;
+    color: red;
+   }
+   #five{
+    position: absolute;
+    margin-left: 320px;
+    margin-top: 300px;
+    color: red;
+   }
+   .uuu{
+    display: flex;
+    gap: 30px;
+    margin-left: 390px;
+    margin-top:-200px;
+   }
+   .uuu h3{
+    border: 1px solid black;
+    width: 230px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    line-height: 2;
+    
+   }
+   a{
+    text-decoration: none;
+   }
+</style>
+<body>
+    <h1 class="reg">Texas Electricity Board Management System</h1>
+        <h2 class="user">Search customer</h2>
+
+       
+    <div class="main">
+      
+
+        
+        <form>
+            <input type="text" placeholder="Enter customer_id" required>
+            <br>
+             <br>
+            <input type="submit" style="border: 1px solid black;background-color:aquamarine;width: 80px;">
+        </form>
+    </div>
+    <h3 id="nn">Hello</h3>
+    <h3 id="one"></h3>
+    <h3 id="two"></h3>
+    <h3 id="three"></h3>
+    <h3 id="four"></h3>
+    <h3 id="five"></h3>
+    
+    <script>
+        var d = document.forms;
+
+        d[0].addEventListener("submit", function(e) {
+            e.preventDefault();
+            var sign = localStorage.getItem("data") || "[]"; 
+            var pg = JSON.parse(sign);
+            console.log(pg);
+
+            var customer_id = e.target[0].value;
+            var credentialsMatch = false;
+let nn;
+let p1;
+let p2;
+let p3;
+let p4;
+let p5;
+let p6;
+let p7;
+            for (let i = 0; i < pg.length; i++) {
+                 nn = pg[i].customer_id;
+                 p1 = pg[i].name;
+                 p2 =pg[i].age;
+                 p3 =pg[i].adress
+                 p4 =pg[i].contact
+                 p5 =pg[i].id_prof
+                 p6 =pg[i].connection
+
+                if (customer_id == nn ) {
+                    credentialsMatch = true;
+                    break;
+                }
+            }
+
+            e.target[0].value = "";
+            if (!credentialsMatch) {
+                alert("NO DATA FOUND")
+            } else {
+                var x=document.getElementById("nn");
+                x.innerHTML="cutomer_id : "+nn
+                var y=document.getElementById("one");
+                y.innerHTML="Name : "+p1
+                var z=document.getElementById("two");
+                z.innerHTML="Age : "+p2
+                var g=document.getElementById("three");
+                g.innerHTML="Adress : "+p3;
+                var one=document.getElementById("four");
+                one.innerHTML="contact : "+p4
+                var two=document.getElementById("five");
+                two.innerHTML="Id proof : "+p5
+                var three=document.getElementById("six");
+                three.innerHTML="Connection : "+p6
+                // var four=document.getElementById("seven");
+                // four.innerHTML="Delete customer"
+            }
+
+            // e.target[1].value = "";
+        });
+    </script>
+    
+</body>
+</html>
